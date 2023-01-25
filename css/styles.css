@@ -61,7 +61,7 @@ img {
     text-transform: uppercase;
     margin: 0;
     line-height: 1;
-    font-size: clamp(3rem, 10vw, 7rem); /* configura um tamanho mínimo, um ideal e um máximo */
+    font-size: clamp(3rem, 10vw, 12rem); /* configura um tamanho mínimo, um ideal e um máximo */
 }
 
 .location {
@@ -124,7 +124,8 @@ footer {
         display: grid;
         grid-template-columns: 
             minmax(1em, 1fr)
-            repeat(3, minmax(10rem, 30rem))
+            repeat(2, minmax(15rem, 35rem))
+            minmax(5rem, 10rem);
             minmax(1em, 1fr);
         gap: 2em;
         position: relative;
@@ -145,6 +146,7 @@ footer {
         display: grid;
         grid-template-columns: subgrid;
         grid-auto-flow: dense;
+        grid-template-rows: min-content;
     }
 
     main::after {
@@ -154,7 +156,7 @@ footer {
         top: 0;
         bottom: 0;
         left: -2em;
-        right: 0;
+        right: -2em;
         grid-column: 3/4;
         z-index: -10;
     }
@@ -171,8 +173,12 @@ footer {
 
     .primary-image {
         grid-column: 2/-1;
-        grid-row: 1/4;
+        grid-row: 1/span 4;
         z-index: -1;
+        height: 100%;
+        max-height: 500px;
+        width: min(100%, 1000px);
+        object-fit: cover;
     }
 
     .secondary-images {
@@ -181,6 +187,18 @@ footer {
     }
 
     footer {
+        grid-column: 2/3;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    main::after {
+        grid-column: 3/4;
+    }
+
+    .nav, 
+    .secondary-images {
         grid-column: 2/3;
     }
 }
