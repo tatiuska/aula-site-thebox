@@ -125,7 +125,7 @@ footer {
         grid-template-columns: 
             minmax(1em, 1fr)
             repeat(2, minmax(15rem, 35rem))
-            minmax(5rem, 10rem);
+            minmax(5rem, 10rem)
             minmax(1em, 1fr);
         gap: 2em;
         position: relative;
